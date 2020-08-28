@@ -4,7 +4,6 @@ import gc
 import os
 from vaeBase import VAEBase
 from losses import *
-from metrics import get_metrics
 
 
 class VAE(VAEBase):

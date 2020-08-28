@@ -4,7 +4,6 @@ import numpy as np
 import os
 from vaeBase import VAEBase
 from losses import mse_loss
-from metrics import get_metrics
 
 
 class SDVAE(VAEBase):
@@ -12,12 +11,15 @@ class SDVAE(VAEBase):
     def __init__(self, config):
         
         self.config = config
-        
+            
         self.name_model = 'sdvae_'
         if config['use_teacherf']: self.name_model += 'tf_'
+        if config['use_gt_sampling']: self.name_model += 'gt_'
+        if config['use_gt_sampling']: self.name_model += 'feat_'
         self.name_model += str(config['i_test']) + '_'
         self.name_model += str(config['run_id']) 
-    
+
+
         self.create_encoder(config)
         self.create_decoder(config)
         
@@ -72,6 +74,8 @@ class SDVAE(VAEBase):
         
     def decode_batch_sequence(self, inputs_enc, num_preds):
       
+        assert isinstance(num_preds, int), 'SDVAE decode sequence function have to receive an integer.'
+
         enc_inp, s1, s2 = self.encoder_inputs_model(inputs_enc)
 
         preds = []

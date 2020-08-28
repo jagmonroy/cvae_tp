@@ -32,7 +32,7 @@ class VAEBase:
     
     
     # make predictions by batches (in the case of use SS is not affordable make all the predictions at once)
-    def decode_sequences(self, X):
+    def decode_sequences(self, X, obj_pred):
 
         batch_size_eval = self.config['batch_size_vali']
         sequences = []
@@ -60,7 +60,7 @@ class VAEBase:
                 inputs_enc[-1] = inputs_enc[-1].astype('float32')    
                     
             # make prediction
-            sequences.append(self.decode_batch_sequence(inputs_enc, self.config['outputs_validation']))
+            sequences.append(self.decode_batch_sequence(inputs_enc, obj_pred))
 
           # pack all the predictions
 
@@ -79,13 +79,12 @@ class VAEBase:
 
     def evaluate_model(self, input_data_x, input_data_y):
 
-        batch_size_eval = self.config['batch_size_vali']
-        pred = self.decode_sequences(input_data_x)
+        pred = self.decode_sequences(input_data_x, self.config['outputs_validation'])
         assert len(pred) == len(input_data_y)
 
         y_gt_input = input_data_y
 
-        ades, fdes = get_metrics(pred, y_gt_input)
+        _, ades, fdes = get_metrics(pred, y_gt_input)
         del pred
         return {"ADE" : np.mean(ades), "FDE" : np.mean(fdes)}
 

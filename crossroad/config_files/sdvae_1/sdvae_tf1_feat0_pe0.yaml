@@ -12,9 +12,9 @@ formal_training: 0
 
 # ABLATION HYPERPARAMETERS
 
-use_teacherf: 0
-use_features: 1
-ae_pre_enc: 1
+use_teacherf: 1
+use_features: 0
+ae_pre_enc: 0
 
 # FEATURES HYPERPARAMETERS
     
@@ -30,7 +30,7 @@ n_classes: 2
 
 # PRE-ENCODING TRAINING HYPERPARAMETERS
 
-ae_epochs: 10
+ae_epochs: 1
 ae_bs: 32
 ae_lr: 0.001
 ae_augmentation: 1 
@@ -61,7 +61,7 @@ sgd: 0
 lr: 0.005
 momentum: 0.9
 decay: 0.0
-epochs: 50
+epochs: 1
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128
 batch_size_vali: 2048

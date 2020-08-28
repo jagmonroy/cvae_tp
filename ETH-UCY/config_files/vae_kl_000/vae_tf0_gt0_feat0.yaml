@@ -3,7 +3,7 @@
 model: 'vae'
 test_list: ["eth", "hotel", "univ", "zara1", "zara2"]
 id_list: ["0"]
-prefix: "vae"
+prefix: "vaekl0"
 results_path: "results/results_ethucy"
 data_path: "ETH-UCY/datasets"
 # if there is validation and test set to 1. If there is only test, set to 0
@@ -51,7 +51,7 @@ lr: 0.005
 momentum: 0.9
 decay: 0.0
 kl_w: 0.0
-epochs: 50
+epochs: 100
 transform_data: 0
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128

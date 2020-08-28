@@ -52,7 +52,7 @@ momentum: 0.9
 decay: 0.0
 # KL divergence loss term. In experiments it is 0.25
 kl_w: 0.25
-epochs: 50
+epochs: 100
 transform_data: 0
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128
