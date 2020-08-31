@@ -60,7 +60,7 @@ class PatchesDataGenerator(tf.keras.utils.Sequence):
 
     def __data_generation(self, list_IDs_temp):
 
-        X = self.get_semantic_batch_f(self.config, self.X, list_IDs_temp)
+        X = self.get_semantic_batch_f(self.config, self.X, list_IDs_temp, rot = self.augmentation)
         X = X.reshape(tuple([-1]) + X.shape[-3:])
 
         if self.polar_c:

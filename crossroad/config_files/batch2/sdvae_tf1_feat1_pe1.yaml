@@ -12,9 +12,10 @@ formal_training: 0
 
 # ABLATION HYPERPARAMETERS
 
-use_teacherf: 0
-use_features: 0
-ae_pre_enc: 0
+ablation: ['use_teacherf', 'use_features', 'ae_pre_enc']
+use_teacherf: 1
+use_features: 1
+ae_pre_enc: 1
 
 # FEATURES HYPERPARAMETERS
     
@@ -30,7 +31,7 @@ n_classes: 2
 
 # PRE-ENCODING TRAINING HYPERPARAMETERS
 
-ae_epochs: 1
+ae_epochs: 5
 ae_bs: 32
 ae_lr: 0.001
 ae_augmentation: 1 
@@ -58,13 +59,13 @@ space_D: 20
 
 # bool: if it is 1 the models are trained with SGD, otherwise are trained with ADAM
 sgd: 0
-lr: 0.005
+lr: 0.001
 momentum: 0.9
 decay: 0.0
-epochs: 1
+epochs: 50
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128
-batch_size_vali: 2048
+batch_size_vali: 512
 transform_data: 1
 max_abs_value: 0.8
 

@@ -12,9 +12,9 @@ formal_training: 1
 
 # ABLATION HYPERPARAMETERS
 
+ablation: ['use_teacherf', 'use_gt_sampling']
 use_teacherf: 0
-use_gt_sampling: 1
-use_features: 0 
+use_gt_sampling: 0
   
 
 # FEATURES HYPERPARAMETERS
@@ -66,3 +66,4 @@ tot_l: 20
 D: 2
 decoders: 1
 shuffle: 1
+use_features: 0

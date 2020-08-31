@@ -1,9 +1,9 @@
 # RUN PARAMETERS
 
-model: 'sdvae'
+model: 'vae'
 test_list: [2]
-id_list: ["0"]
-prefix: "sdvae"
+id_list: ["0", "1", "2", "3", "4"]
+prefix: "vae"
 results_path: "results/results_crossroad"
 data_path: "crossroad/datasets"
 # if there is validation and test set to 1. If there is only test, set to 0
@@ -12,15 +12,17 @@ formal_training: 0
 
 # ABLATION HYPERPARAMETERS
 
-use_teacherf: 1
-use_features: 0
-ae_pre_enc: 0
+ablation: ['use_teacherf', 'use_gt_sampling', 'use_features']
+use_teacherf: 0
+use_gt_sampling: 0
+use_features: 1
+  
 
 # FEATURES HYPERPARAMETERS
     
 n_layers: 6
 num_filters: 32
-filter_size: [3, 3]
+filter_size: "3 3"
 
 gridS: 512
 nLGrid: 300
@@ -30,19 +32,20 @@ n_classes: 2
 
 # PRE-ENCODING TRAINING HYPERPARAMETERS
 
-ae_epochs: 1
+ae_pre_enc: 1
+ae_epochs: 5
 ae_bs: 32
 ae_lr: 0.001
 ae_augmentation: 1 
 
-    
+
 # SAMPLING HYPERPARAMETERS
 
 # number of predictions in validation 
 outputs_validation: 20
 # number of predictions in the final test
-outputs_final_test: 20
-    
+outputs_final_test: 100
+
 
 # LSTM (ENCODER AND DECODER) AND LATENT SPACE HYPERPARAMETS
 
@@ -51,17 +54,19 @@ f_dis_D: 128
 # LSTM dimension
 LSTM_D: 256
 # latent space dimension
-space_D: 20
-               
+space_D: 64
+           
 
 # TRAINING HYPERPARAMETERS 
 
 # bool: if it is 1 the models are trained with SGD, otherwise are trained with ADAM
 sgd: 0
-lr: 0.005
+lr: 0.001
 momentum: 0.9
 decay: 0.0
-epochs: 1
+kl_w: 0.005
+epochs: 100
+transform_data: 0
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128
 batch_size_vali: 2048
@@ -71,10 +76,9 @@ max_abs_value: 0.8
 
 # BETTER DO NOT CHANGE...
 
-use_gt_sampling: 0
 obs_l: 8
 pre_l: 12
 tot_l: 20
 D: 2
+decoders: 1
 shuffle: 1
-polar_c: 0

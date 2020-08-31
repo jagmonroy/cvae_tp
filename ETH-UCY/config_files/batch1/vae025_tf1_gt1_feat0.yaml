@@ -3,7 +3,7 @@
 model: 'vae'
 test_list: ["eth", "hotel", "univ", "zara1", "zara2"]
 id_list: ["0"]
-prefix: "vaekl0"
+prefix: "vae"
 results_path: "results/results_ethucy"
 data_path: "ETH-UCY/datasets"
 # if there is validation and test set to 1. If there is only test, set to 0
@@ -12,9 +12,9 @@ formal_training: 1
 
 # ABLATION HYPERPARAMETERS
 
+ablation: ['use_teacherf', 'use_gt_sampling']
 use_teacherf: 1
 use_gt_sampling: 1
-use_features: 0 
   
 
 # FEATURES HYPERPARAMETERS
@@ -50,7 +50,8 @@ sgd: 1
 lr: 0.005
 momentum: 0.9
 decay: 0.0
-kl_w: 0.0
+# KL divergence loss term. In experiments it is 0.25
+kl_w: 0.25
 epochs: 100
 transform_data: 0
 # there are two different batch sizes. One is used to train and the other one to validate and test
@@ -66,3 +67,4 @@ tot_l: 20
 D: 2
 decoders: 1
 shuffle: 1
+use_features: 0 

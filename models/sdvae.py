@@ -19,7 +19,6 @@ class SDVAE(VAEBase):
         self.name_model += str(config['i_test']) + '_'
         self.name_model += str(config['run_id']) 
 
-
         self.create_encoder(config)
         self.create_decoder(config)
         

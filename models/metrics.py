@@ -42,6 +42,8 @@ def get_metrics(X, Y, selection = ('default', None), rela = True):
     ades = np.min(np.mean(dis, axis = -1), axis = -1)
     fdes = np.min(dis[:, :, -1], axis = -1)
 
+    del dis
+
     return X, ades, fdes
 
 

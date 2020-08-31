@@ -245,10 +245,10 @@ class LoadData:
         print('********************************************************')
 
 
-def get_semantic_batch_f(config, X, ids, key = 'obs_traj'):
+def get_semantic_batch_f(config, X, ids, key = 'obs_traj', rot = False):
         
     scenes = get_scenes(X, ids)
-    return get_semantic_batch(scenes, X[key][ids], config['nLGrid'], config['fLGrid'], rot = False)
+    return get_semantic_batch(scenes, X[key][ids], config['nLGrid'], config['fLGrid'], rot = rot)
 
         
 def get_semantic_batch(gPath, cPath, nLGrid, fLGrid, rot = False):

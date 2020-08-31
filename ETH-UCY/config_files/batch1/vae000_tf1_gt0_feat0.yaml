@@ -1,9 +1,9 @@
 # RUN PARAMETERS
 
-model: 'sdvae'
+model: 'vae'
 test_list: ["eth", "hotel", "univ", "zara1", "zara2"]
 id_list: ["0"]
-prefix: "sdvae"
+prefix: "vaekl0"
 results_path: "results/results_ethucy"
 data_path: "ETH-UCY/datasets"
 # if there is validation and test set to 1. If there is only test, set to 0
@@ -12,8 +12,9 @@ formal_training: 1
 
 # ABLATION HYPERPARAMETERS
 
+ablation: ['use_teacherf', 'use_gt_sampling']
 use_teacherf: 1
-use_features: 0 
+use_gt_sampling: 0
   
 
 # FEATURES HYPERPARAMETERS
@@ -22,25 +23,25 @@ use_features: 0
 max_d: 20.0
 # reduce have to divide 360. Number of "slices" (pizza) in APG
 reduce: 360
+    
 
+# LSTM (ENCODER AND DECODER) AND LATENT SPACE HYPERPARAMETS
+
+# before the LSTM, the data are transformed with a dense layer. "f_dis_D" is the dimension
+f_dis_D: 128
+# LSTM dimension
+LSTM_D: 256
+# latent space dimension
+space_D: 128
+           
 
 # SAMPLING HYPERPARAMETERS
 
 # number of predictions in validation 
 outputs_validation: 20
 # number of predictions in the final test
-outputs_final_test: 20
-
-
-# LSTM (ENCODER AND DECODER) AND LATENT SPACE HYPERPARAMETS
-
-# before the LSTM, the data are transformed with a dense layer. "f_dis_D" is the dimension
-f_dis_D: 64
-# LSTM dimension
-LSTM_D: 256
-# latent space dimension
-space_D: 20
-               
+outputs_final_test: 100
+    
 
 # TRAINING HYPERPARAMETERS 
 
@@ -49,7 +50,8 @@ sgd: 1
 lr: 0.005
 momentum: 0.9
 decay: 0.0
-epochs: 50
+kl_w: 0.0
+epochs: 100
 transform_data: 0
 # there are two different batch sizes. One is used to train and the other one to validate and test
 batch_size: 128
@@ -58,9 +60,10 @@ batch_size_vali: 2048
 
 # BETTER DO NOT CHANGE...
 
-use_gt_sampling: 0
 obs_l: 8
 pre_l: 12
 tot_l: 20
 D: 2
+decoders: 1
 shuffle: 1
+use_features: 0

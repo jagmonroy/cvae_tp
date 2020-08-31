@@ -11,16 +11,15 @@ from callback import Callback
 
 
 def load_config_file(file_path, create_folder_results):
-
+    
     stream = open(file_path, 'r')
-    config = yaml.safe_load(stream)
+    config = yaml.load(stream, Loader=yaml.Loader)
     stream.close()
     
-    # direction where the results are saved
-    config["r_path"] = os.path.join(config['results_path'], config['prefix'] + "_")
-    config["r_path"] += str(config['use_teacherf']) + '_'
-    config["r_path"] += str(config['use_gt_sampling']) + '_'
-    config["r_path"] += str(config['use_features'])
+    config["r_path"] = os.path.join(config['results_path'], config['prefix'])
+    
+    for p in config['ablation']:
+        config['r_path'] += '_' + str(config[p])
 
     # model name
     if create_folder_results:

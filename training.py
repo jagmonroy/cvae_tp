@@ -26,6 +26,7 @@ from generator import *
 from callback import *
 from autoencoder_patches import *
 from dataset_processing import *
+from metrics import *
 
 if __name__ == '__main__':
 

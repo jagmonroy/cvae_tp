@@ -220,9 +220,10 @@ def load_dataset(config, verbose):
                 dictio[phase]['X']['features'] = np.concatenate(dictio[phase]['X']['obs_features'], axis = 0)
                 dictio[phase]['X']['pre_features'] = np.concatenate(dictio[phase]['X']['pre_features'], axis = 0)
 
-                dictio[phase]['X']['features'] /= config['max_d']
-                dictio[phase]['X']['pre_features'] /= config['max_d']
+                dictio[phase]['X']['features'] = dictio[phase]['X']['features']/config['max_d']
+                dictio[phase]['X']['pre_features'] = dictio[phase]['X']['pre_features']/config['max_d']
                 
+                # print(dictio[phase]['X']['features'])
                         
         if verbose: print('   ', len(dictio[phase]['Y']))
 

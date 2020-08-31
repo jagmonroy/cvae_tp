@@ -119,7 +119,6 @@ class VAEBase:
         self.X_inputs = tf.keras.layers.Input(shape = (None, config['D']))
         f_dis_X = tf.keras.Sequential([tf.keras.layers.Dense(config['f_dis_D'], activation = 'tanh',
                                             input_shape = (None, config['D'])),
-                                       # tf.keras.layers.BatchNormalization()
                                       ])
 
         inputs = [self.X_inputs]
