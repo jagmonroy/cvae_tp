@@ -22,7 +22,7 @@ use_features: 1
     
 n_layers: 6
 num_filters: 32
-filter_size: "3 3"
+filter_size: [3, 3]
 
 gridS: 512
 nLGrid: 300

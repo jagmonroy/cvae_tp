@@ -59,12 +59,12 @@ space_D: 20
 
 # bool: if it is 1 the models are trained with SGD, otherwise are trained with ADAM
 sgd: 0
-lr: 0.0005
+lr: 0.005
 momentum: 0.9
 decay: 0.0
 epochs: 50
 # there are two different batch sizes. One is used to train and the other one to validate and test
-batch_size: 32
+batch_size: 128
 batch_size_vali: 512
 transform_data: 1
 max_abs_value: 0.8
