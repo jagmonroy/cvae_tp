@@ -2,7 +2,7 @@
 
 model: 'sdvae'
 test_list: [2]
-id_list: ["0"]
+id_list: ["1", "2", "3", "4"]
 prefix: "sdvae"
 results_path: "results/results_crossroad"
 data_path: "crossroad/datasets"

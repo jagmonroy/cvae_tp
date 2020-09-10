@@ -1,3 +1,6 @@
 results
 sdd
 crossroad/datasets/pre_encodings
+l5
+simaug
+*__pycache__
