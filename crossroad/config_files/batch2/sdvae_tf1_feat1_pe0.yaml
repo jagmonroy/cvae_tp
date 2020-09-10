@@ -1,7 +1,6 @@
 # RUN PARAMETERS
 
 model: 'sdvae'
-test_list: [2]
 id_list: ["0"]
 prefix: "sdvae"
 results_path: "results/results_crossroad"
@@ -72,6 +71,7 @@ max_abs_value: 0.8
 
 # BETTER DO NOT CHANGE...
 
+test_list: [2]
 use_gt_sampling: 0
 obs_l: 8
 pre_l: 12
