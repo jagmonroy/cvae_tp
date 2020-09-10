@@ -33,7 +33,7 @@ python3 run_folder.py ETH-UCY/config_files/batch1/ 0
 
 python3 run_folder.py ETH-UCY/config_files/batch2/ 1
 
-By default, all ETH-UCY config files has only one run. In the thesis, each configuration was run 5 times. To run the configuration more times, just add ids (strings) in id_list in the yaml file. By default, only sdvae_tf1_feat1_pe0 and sdvae_tf0_feat1_pe0 are run one time, the rest are run 5 times (they can be seen as example if it is desired to do more than one run in ETH-UCY).
+By default, all ETH-UCY config files have only one run. In the thesis, each configuration was run 5 times. To run the configuration more times, just add ids (strings) in id_list in the yaml file. By default, in crossroad only sdvae_tf1_feat1_pe0 and sdvae_tf0_feat1_pe0 are run one time, the rest are run 5 times (they can be seen as example if it is desired to do more than one run in ETH-UCY).
 
 
 
