@@ -7,7 +7,7 @@ This repository contains the code that I used to obtain the presented results in
 * datasets. The trajectories are here. Each dataset has its own format.
 * config_files. This folder contains the configuration files. 
 * dataset_processing.py. It contains the functions to process the data. They are different for each dataset.
-* results.ipynb. This is a notebook to visualize the results. Actually, all thesis figures were generated with these notebooks.
+* results.ipynb. This is a notebook to visualize the results. Actually, most of the thesis figures in Experiments Chapter were generated with these notebooks.
 
 requirements.txt contains my environment configuration (tensorflow, cv2 and numpy versions, for example).
 
